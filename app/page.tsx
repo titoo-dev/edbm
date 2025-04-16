@@ -355,257 +355,440 @@ export default function Home() {
 			</section>
 
 			{/* Services Section - Clean tabs with rounded corners */}
-			<section className="w-full py-24 bg-[#FAFAFA]">
-				<div className="container mx-auto max-w-[1200px] px-4 md:px-6">
+			<section className="w-full py-24 relative overflow-hidden">
+				{/* Decorative background elements */}
+				<div className="absolute inset-0 bg-gradient-to-br from-white to-primary/5 z-0"></div>
+				<div className="absolute right-0 top-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+				<div className="absolute left-0 bottom-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+
+				<div className="container mx-auto max-w-[1200px] px-4 md:px-6 relative z-10">
+					{/* Section header with animated underline */}
 					<div className="flex flex-col items-center text-center mb-16">
-						<h2 className="text-3xl font-bold tracking-tight mb-4">
-							Services aux Investisseurs
+						<div className="inline-flex items-center justify-center p-1 px-3 mb-4 rounded-full bg-primary/10">
+							<span className="text-sm font-semibold text-primary">
+								Nos services
+							</span>
+						</div>
+						<h2 className="text-4xl font-bold tracking-tight mb-4">
+							Services aux{' '}
+							<span className="text-primary relative">
+								Investisseurs
+								<svg
+									className="absolute -bottom-2 left-0 w-full"
+									height="6"
+									viewBox="0 0 200 6"
+									fill="none"
+								>
+									<path
+										d="M0 3C50 -1 150 -1 200 3"
+										stroke="currentColor"
+										strokeWidth="2"
+										className="text-primary"
+										strokeLinecap="round"
+									/>
+								</svg>
+							</span>
 						</h2>
-						<p className="text-muted-foreground max-w-2xl">
+						<p className="text-muted-foreground max-w-2xl text-lg">
 							Des solutions adaptées pour faciliter votre
-							investissement
+							investissement à Madagascar
 						</p>
 					</div>
 
-					<Tabs defaultValue="pourquoi" className="w-full">
-						<div className="flex justify-center mb-12">
-							<TabsList className="bg-white shadow-sm p-1.5 rounded-full border border-border/10">
-								<TabsTrigger
-									value="pourquoi"
-									className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+					{/* Services cards in carousel */}
+					<Carousel
+						opts={{
+							align: 'start',
+							loop: true,
+						}}
+						className="w-full"
+					>
+						<CarouselContent className="py-4">
+							{[
+								{
+									title: 'Pourquoi Madagascar',
+									icon: (
+										<Globe className="h-6 w-6 text-primary" />
+									),
+									description:
+										"Une île aux multiples opportunités d'investissement avec des ressources naturelles exceptionnelles et un emplacement stratégique.",
+									features: [
+										'Biodiversité unique',
+										'Ressources naturelles',
+										'Position géographique stratégique',
+									],
+									bgClass:
+										'bg-gradient-to-br from-blue-50 to-indigo-50',
+								},
+								{
+									title: "Création d'Entreprise",
+									icon: (
+										<Building className="h-6 w-6 text-primary" />
+									),
+									description:
+										'Processus dématérialisé pour la création de votre entreprise en seulement 48 heures via notre guichet unique.',
+									features: [
+										'Guichet unique',
+										'Procédure simplifiée',
+										'Accompagnement personnalisé',
+									],
+									bgClass:
+										'bg-gradient-to-br from-green-50 to-emerald-50',
+								},
+								{
+									title: 'Visa & Immigration',
+									icon: (
+										<Award className="h-6 w-6 text-primary" />
+									),
+									description:
+										"Facilitez votre installation avec nos services d'accompagnement pour l'obtention de visa long séjour.",
+									features: [
+										'Visa investisseur',
+										'Visa famille',
+										'Renouvellement simplifié',
+									],
+									bgClass:
+										'bg-gradient-to-br from-amber-50 to-yellow-50',
+								},
+								{
+									title: 'Secteurs Porteurs',
+									icon: (
+										<Briefcase className="h-6 w-6 text-primary" />
+									),
+									description:
+										'Découvrez les secteurs à fort potentiel pour votre investissement à Madagascar.',
+									features: [
+										'Agrobusiness',
+										'Tourisme',
+										'Industrie',
+										'Technologies',
+									],
+									bgClass:
+										'bg-gradient-to-br from-rose-50 to-pink-50',
+								},
+								{
+									title: "À Propos de l'EDBM",
+									icon: (
+										<MessageSquare className="h-6 w-6 text-primary" />
+									),
+									description:
+										'Votre partenaire privilégié pour réussir votre investissement à Madagascar.',
+									features: [
+										'Accompagnement',
+										'Conseil',
+										'Mise en relation',
+									],
+									bgClass:
+										'bg-gradient-to-br from-violet-50 to-purple-50',
+								},
+							].map((service, index) => (
+								<CarouselItem
+									key={index}
+									className="md:basis-1/2 lg:basis-1/3 pl-1 pr-4"
 								>
-									<Globe className="h-4 w-4 mr-2" /> Pourquoi?
-								</TabsTrigger>
-								<TabsTrigger
-									value="creation"
-									className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-								>
-									<Building className="h-4 w-4 mr-2" />{' '}
-									Création
-								</TabsTrigger>
-								<TabsTrigger
-									value="visa"
-									className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-								>
-									<Award className="h-4 w-4 mr-2" /> Visa
-								</TabsTrigger>
-								<TabsTrigger
-									value="secteurs"
-									className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-								>
-									<Briefcase className="h-4 w-4 mr-2" />{' '}
-									Secteurs
-								</TabsTrigger>
-								<TabsTrigger
-									value="apropos"
-									className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-								>
-									<MessageSquare className="h-4 w-4 mr-2" />{' '}
-									EDBM
-								</TabsTrigger>
-							</TabsList>
-						</div>
+									<div
+										className={`h-full rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 ${service.bgClass}`}
+									>
+										<div className="h-full p-8 flex flex-col">
+											<div className="flex items-center gap-4 mb-6">
+												<div className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm shadow-sm">
+													{service.icon}
+												</div>
+												<h3 className="text-xl font-bold">
+													{service.title}
+												</h3>
+											</div>
 
-						<TabsContent value="pourquoi" className="mt-2">
-							<div className="grid md:grid-cols-2 gap-8">
-								<Card className="border-none shadow-sm hover:shadow-md transition-all duration-300">
-									<CardHeader className="pb-4">
-										<div className="flex items-center gap-4">
-											<div className="p-3 rounded-full bg-primary/10">
-												<Globe className="h-6 w-6 text-primary" />
+											<p className="text-muted-foreground mb-8">
+												{service.description}
+											</p>
+
+											<div className="space-y-3 mb-8 flex-grow">
+												{service.features.map(
+													(feature, i) => (
+														<div
+															key={i}
+															className="flex items-center gap-2"
+														>
+															<div className="h-2 w-2 rounded-full bg-primary"></div>
+															<span className="text-sm">
+																{feature}
+															</span>
+														</div>
+													)
+												)}
 											</div>
-											<CardTitle>
-												Une île riche en ressources
-												naturelles
-											</CardTitle>
+
+											<Button className="rounded-full mt-auto w-full shadow-sm hover:shadow-md transition-all duration-300 group">
+												En savoir plus
+												<ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+											</Button>
 										</div>
-									</CardHeader>
-									<CardContent className="pt-2">
-										<p className="text-muted-foreground">
-											Madagascar dispose d'une
-											biodiversité exceptionnelle et de
-											nombreuses ressources naturelles
-											offrant des opportunités
-											d'investissement uniques.
-										</p>
-									</CardContent>
-									<CardFooter className="pt-4">
-										<Button
-											variant="outline"
-											className="w-full rounded-full hover:bg-primary/5 border-primary/20"
-										>
-											En savoir plus
-										</Button>
-									</CardFooter>
-								</Card>
-								<Card className="border-none shadow-sm hover:shadow-md transition-all duration-300">
-									<CardHeader className="pb-4">
-										<div className="flex items-center gap-4">
-											<div className="p-3 rounded-full bg-primary/10">
-												<Award className="h-6 w-6 text-primary" />
-											</div>
-											<CardTitle>
-												Accords bilatéraux et régionaux
-											</CardTitle>
-										</div>
-									</CardHeader>
-									<CardContent className="pt-2">
-										<p className="text-muted-foreground">
-											Madagascar bénéficie de nombreux
-											accords commerciaux offrant un accès
-											privilégié aux marchés
-											internationaux.
-										</p>
-									</CardContent>
-									<CardFooter className="pt-4">
-										<Button
-											variant="outline"
-											className="w-full rounded-full hover:bg-primary/5 border-primary/20"
-										>
-											En savoir plus
-										</Button>
-									</CardFooter>
-								</Card>
+									</div>
+								</CarouselItem>
+							))}
+						</CarouselContent>
+
+						<div className="flex items-center justify-center mt-8 gap-2">
+							<CarouselPrevious className="relative bg-white shadow-md hover:bg-primary hover:text-white transition-all duration-300 border-none" />
+							<div className="flex items-center space-x-1">
+								{[1, 2, 3, 4, 5].map((_, index) => (
+									<div
+										key={index}
+										className="h-2 w-2 rounded-full bg-primary/30"
+									></div>
+								))}
 							</div>
-						</TabsContent>
+							<CarouselNext className="relative bg-white shadow-md hover:bg-primary hover:text-white transition-all duration-300 border-none" />
+						</div>
+					</Carousel>
 
-						<TabsContent value="creation" className="mt-2">
-							<Card className="border-none shadow-sm">
-								<CardHeader className="pb-4">
-									<div className="flex items-center gap-4">
-										<div className="p-3 rounded-full bg-primary/10">
-											<Building className="h-6 w-6 text-primary" />
-										</div>
-										<div>
-											<CardTitle>
-												Création de Société en 48 heures
-											</CardTitle>
-											<CardDescription className="mt-1">
-												Processus dématérialisé pour
-												faciliter l'implantation de
-												votre entreprise
-											</CardDescription>
-										</div>
+					{/* Bottom card with stats */}
+					<div className="mt-20 bg-white rounded-3xl shadow-xl p-10 border border-primary/10">
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+							{[
+								{
+									value: '200+',
+									label: 'Entreprises créées',
+									icon: (
+										<Building className="h-5 w-5 text-primary" />
+									),
+								},
+								{
+									value: '48h',
+									label: 'Pour créer votre entreprise',
+									icon: (
+										<Award className="h-5 w-5 text-primary" />
+									),
+								},
+								{
+									value: '15+',
+									label: "Secteurs d'activité",
+									icon: (
+										<Briefcase className="h-5 w-5 text-primary" />
+									),
+								},
+								{
+									value: '24/7',
+									label: 'Support aux investisseurs',
+									icon: (
+										<MessageSquare className="h-5 w-5 text-primary" />
+									),
+								},
+							].map((stat, i) => (
+								<div key={i} className="text-center">
+									<div className="inline-flex items-center justify-center p-3 rounded-xl bg-primary/10 mb-4">
+										{stat.icon}
 									</div>
-								</CardHeader>
-								<CardContent className="pt-2">
+									<h3 className="text-3xl font-bold text-primary mb-2">
+										{stat.value}
+									</h3>
 									<p className="text-muted-foreground">
-										L'EDBM propose un guichet unique pour la
-										création de société, permettant
-										d'immatriculer une entreprise en
-										seulement 48 heures grâce à la
-										dématérialisation des procédures.
+										{stat.label}
 									</p>
-								</CardContent>
-								<CardFooter className="pt-6">
-									<Button className="rounded-full">
-										Commencer la procédure
-									</Button>
-								</CardFooter>
-							</Card>
-						</TabsContent>
-
-						<TabsContent value="visa" className="mt-2">
-							<Card className="border-none shadow-sm">
-								<CardHeader className="pb-4">
-									<div className="flex items-center gap-4">
-										<div className="p-3 rounded-full bg-primary/10">
-											<Award className="h-6 w-6 text-primary" />
-										</div>
-										<div>
-											<CardTitle>
-												Visa Long Séjour
-											</CardTitle>
-											<CardDescription className="mt-1">
-												Facilitez votre installation à
-												Madagascar
-											</CardDescription>
-										</div>
-									</div>
-								</CardHeader>
-								<CardContent className="pt-2">
-									<p className="text-muted-foreground">
-										L'EDBM vous accompagne dans les
-										démarches d'obtention de visa long
-										séjour pour les investisseurs et leur
-										famille.
-									</p>
-								</CardContent>
-								<CardFooter className="pt-6">
-									<Button className="rounded-full">
-										Demander un visa
-									</Button>
-								</CardFooter>
-							</Card>
-						</TabsContent>
-						{/* Other tabs would follow the same pattern */}
-					</Tabs>
+								</div>
+							))}
+						</div>
+					</div>
 				</div>
 			</section>
 
 			{/* Testimonials Section - Floating cards with subtle shadows */}
-			<section className="w-full py-24 bg-white">
-				<div className="container mx-auto max-w-[1200px] px-4 md:px-6">
-					<div className="flex flex-col items-center text-center space-y-4 mb-16">
-						<h2 className="text-3xl font-bold tracking-tight">
-							Success Stories
+			<section className="w-full py-28 bg-white overflow-hidden relative">
+				{/* Decorative background elements */}
+				<div className="absolute inset-0 bg-[url('/images/pattern-bg.png')] opacity-5"></div>
+				<div className="absolute right-0 top-20 w-1/3 h-72 bg-primary/10 rounded-l-full blur-3xl"></div>
+				<div className="absolute left-0 bottom-20 w-1/4 h-64 bg-primary/5 rounded-r-full blur-3xl"></div>
+
+				<div className="container mx-auto max-w-[1200px] px-4 md:px-6 relative">
+					{/* Section header with animated underline */}
+					<div className="flex flex-col items-center text-center mb-16">
+						<div className="relative mb-2">
+							<span className="text-sm font-semibold text-primary uppercase tracking-wider px-4 py-1 rounded-full bg-primary/5">
+								Témoignages
+							</span>
+							<span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-1 w-12 bg-primary rounded-full"></span>
+						</div>
+
+						<h2 className="text-4xl font-bold tracking-tight mt-6 mb-3">
+							Success{' '}
+							<span className="text-primary relative">
+								Stories
+								<svg
+									className="absolute -bottom-2 left-0 w-full"
+									height="6"
+									viewBox="0 0 200 6"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M0 3C50 -1 150 -1 200 3"
+										stroke="currentColor"
+										strokeWidth="2"
+										className="text-primary"
+										strokeLinecap="round"
+									/>
+								</svg>
+							</span>
 						</h2>
-						<p className="text-muted-foreground md:text-lg max-w-2xl">
+
+						<p className="text-muted-foreground max-w-xl text-lg">
 							Découvrez les témoignages des investisseurs qui ont
 							choisi Madagascar
 						</p>
 					</div>
-					<div className="grid gap-8 md:grid-cols-3">
-						{[
-							{
-								name: 'Pierre-Luc NEVEU',
-								role: 'Fondateur de NOSYCOM SARL',
-								quote: 'Connaître le territoire ainsi que la société y demeurant sont les principaux éléments à considérer durant la préparation de son projet.',
-							},
-							{
-								name: 'M. Feride Hassanaly',
-								role: 'Co-Dg du groupe Talys',
-								quote: "La tangibilité de notre projet nous a avantagé dans le choix d'un meilleur partenaire pour la concrétisation de ce dernier.",
-							},
-							{
-								name: 'Matthias Roß',
-								role: 'Fondateur Autarsys Madagascar SARL',
-								quote: "27 ans de présence professionnelle à Madagascar m'ont appris que la grande île bénéficie d'une potentialité impressionnante en matière de ressources humaines.",
-							},
-						].map((testimonial, i) => (
-							<Card
-								key={i}
-								className="border-none shadow-sm hover:shadow-md transition-all duration-300 relative"
-							>
-								<div className="absolute -top-4 left-8">
-									<div className="p-2 rounded-full bg-primary text-primary-foreground shadow-md">
-										<MessageSquare className="h-5 w-5" />
-									</div>
-								</div>
-								<CardHeader className="pt-10 pb-4">
-									<CardTitle className="text-lg">
-										{testimonial.name}
-									</CardTitle>
-									<CardDescription>
-										{testimonial.role}
-									</CardDescription>
-								</CardHeader>
-								<CardContent>
-									<p className="italic text-muted-foreground">
-										"{testimonial.quote}"
-									</p>
-								</CardContent>
-							</Card>
-						))}
-					</div>
-					<div className="flex justify-center mt-12">
-						<Button
-							variant="outline"
-							className="rounded-full border-primary/20 hover:bg-primary/5"
+
+					{/* Testimonials carousel */}
+					<div className="mb-16">
+						<Carousel
+							opts={{
+								loop: true,
+							}}
+							className="w-full"
 						>
-							Voir tous les témoignages{' '}
-							<ArrowRight className="h-4 w-4 ml-2" />
-						</Button>
+							<CarouselContent>
+								{[
+									{
+										name: 'Pierre-Luc NEVEU',
+										role: 'Fondateur de NOSYCOM SARL',
+										quote: 'Connaître le territoire ainsi que la société y demeurant sont les principaux éléments à considérer durant la préparation de son projet.',
+										avatar: '/images/avatar-1.jpg',
+										company: 'NOSYCOM',
+									},
+									{
+										name: 'M. Feride Hassanaly',
+										role: 'Co-Dg du groupe Talys',
+										quote: "La tangibilité de notre projet nous a avantagé dans le choix d'un meilleur partenaire pour la concrétisation de ce dernier.",
+										avatar: '/images/avatar-2.jpg',
+										company: 'Talys Group',
+									},
+									{
+										name: 'Matthias Roß',
+										role: 'Fondateur Autarsys Madagascar SARL',
+										quote: "27 ans de présence professionnelle à Madagascar m'ont appris que la grande île bénéficie d'une potentialité impressionnante en matière de ressources humaines.",
+										avatar: '/images/avatar-3.jpg',
+										company: 'Autarsys Madagascar',
+									},
+								].map((testimonial, i) => (
+									<CarouselItem
+										key={i}
+										className="px-4 md:px-6 py-4"
+									>
+										<div className="relative rounded-3xl overflow-hidden shadow-xl group">
+											<div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary/10 mix-blend-overlay z-0"></div>
+											<div className="bg-white/95 backdrop-blur-sm p-8 md:p-10 relative z-10">
+												<div className="grid md:grid-cols-5 gap-8 items-center">
+													<div className="md:col-span-2 flex flex-col items-center md:items-start">
+														<div className="relative">
+															<div className="h-28 w-28 rounded-2xl overflow-hidden shadow-lg">
+																{testimonial.avatar ? (
+																	<Image
+																		src={
+																			testimonial.avatar
+																		}
+																		alt={
+																			testimonial.name
+																		}
+																		fill
+																		className="object-cover transition-transform duration-700 group-hover:scale-105"
+																	/>
+																) : (
+																	<div className="w-full h-full bg-primary/20 flex items-center justify-center">
+																		<MessageSquare className="h-8 w-8 text-primary" />
+																	</div>
+																)}
+															</div>
+														</div>
+
+														<div className="mt-6 text-center md:text-left">
+															<h3 className="font-bold text-xl">
+																{
+																	testimonial.name
+																}
+															</h3>
+															<p className="text-muted-foreground text-sm">
+																{
+																	testimonial.role
+																}
+															</p>
+															<div className="flex items-center gap-2 mt-3 justify-center md:justify-start">
+																<div className="h-1 w-6 rounded-full bg-primary"></div>
+																<span className="text-xs font-medium text-primary">
+																	{
+																		testimonial.company
+																	}
+																</span>
+															</div>
+														</div>
+													</div>
+
+													<div className="md:col-span-3">
+														<div className="p-4 rounded-xl bg-primary/5 mb-6">
+															<blockquote className="text-lg md:text-xl italic leading-relaxed text-muted-foreground">
+																"
+																{
+																	testimonial.quote
+																}
+																"
+															</blockquote>
+														</div>
+
+														<Button
+															variant="outline"
+															size="sm"
+															className="mt-2 rounded-full border-primary/30 hover:bg-white hover:text-primary transition-all group"
+														>
+															<span>
+																Lire le
+																témoignage
+																complet
+															</span>
+															<ArrowRight className="h-3 w-3 ml-2 group-hover:translate-x-1 transition-transform" />
+														</Button>
+													</div>
+												</div>
+											</div>
+
+											{/* Decorative elements */}
+											<div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg z-20">
+												<MessageSquare className="h-5 w-5 text-primary" />
+											</div>
+										</div>
+									</CarouselItem>
+								))}
+							</CarouselContent>
+
+							<div className="flex justify-center mt-8">
+								<div className="flex items-center gap-2">
+									<CarouselPrevious className="relative bg-white shadow-md hover:bg-primary hover:text-white transition-all duration-300 border-none" />
+									<div className="flex items-center space-x-1">
+										{[1, 2, 3].map((_, index) => (
+											<div
+												key={index}
+												className="h-2 w-2 rounded-full bg-primary/30"
+											></div>
+										))}
+									</div>
+									<CarouselNext className="relative bg-white shadow-md hover:bg-primary hover:text-white transition-all duration-300 border-none" />
+								</div>
+							</div>
+						</Carousel>
+					</div>
+
+					{/* Bottom CTA */}
+					<div className="flex justify-center">
+						<div className="flex items-center gap-4 p-4 px-6 rounded-full bg-white border border-primary/10 shadow-lg hover:shadow-xl transition-all duration-300">
+							<div className="p-3 rounded-full bg-primary/10">
+								<MessageSquare className="h-5 w-5 text-primary" />
+							</div>
+							<p className="text-base font-medium">
+								Découvrez plus de success stories
+							</p>
+							<Button size="sm" className="rounded-full">
+								Voir plus
+								<ArrowRight className="h-4 w-4 ml-2" />
+							</Button>
+						</div>
 					</div>
 				</div>
 			</section>
