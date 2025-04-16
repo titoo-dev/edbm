@@ -1,6 +1,9 @@
 {
     "github.copilot.chat.codeGeneration.instructions": [
         {
+            "text": "Always use Flexbox."
+        },
+        {
             "text": "Always use Typescript for code generation."
         },
         {

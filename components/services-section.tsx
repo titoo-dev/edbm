@@ -59,152 +59,153 @@ export const ServicesSection = () => {
 				</div>
 
 				{/* Services cards in carousel */}
-				<Carousel
-					opts={{
-						align: 'start',
-						loop: true,
-					}}
-					className="w-full"
-				>
-					<CarouselContent className="py-4">
-						{[
-							{
-								title: 'Pourquoi Madagascar',
-								icon: (
-									<Globe className="h-6 w-6 text-primary" />
-								),
-								description:
-									"Une île aux multiples opportunités d'investissement avec des ressources naturelles exceptionnelles et un emplacement stratégique.",
-								features: [
-									'Biodiversité unique',
-									'Ressources naturelles',
-									'Position géographique stratégique',
-								],
-								bgClass:
-									'bg-gradient-to-br from-blue-50 to-indigo-50',
-							},
-							{
-								title: "Création d'Entreprise",
-								icon: (
-									<Building className="h-6 w-6 text-primary" />
-								),
-								description:
-									'Processus dématérialisé pour la création de votre entreprise en seulement 48 heures via notre guichet unique.',
-								features: [
-									'Guichet unique',
-									'Procédure simplifiée',
-									'Accompagnement personnalisé',
-								],
-								bgClass:
-									'bg-gradient-to-br from-green-50 to-emerald-50',
-							},
-							{
-								title: 'Visa & Immigration',
-								icon: (
-									<Award className="h-6 w-6 text-primary" />
-								),
-								description:
-									"Facilitez votre installation avec nos services d'accompagnement pour l'obtention de visa long séjour.",
-								features: [
-									'Visa investisseur',
-									'Visa famille',
-									'Renouvellement simplifié',
-								],
-								bgClass:
-									'bg-gradient-to-br from-amber-50 to-yellow-50',
-							},
-							{
-								title: 'Secteurs Porteurs',
-								icon: (
-									<Briefcase className="h-6 w-6 text-primary" />
-								),
-								description:
-									'Découvrez les secteurs à fort potentiel pour votre investissement à Madagascar.',
-								features: [
-									'Agrobusiness',
-									'Tourisme',
-									'Industrie',
-									'Technologies',
-								],
-								bgClass:
-									'bg-gradient-to-br from-rose-50 to-pink-50',
-							},
-							{
-								title: "À Propos de l'EDBM",
-								icon: (
-									<MessageSquare className="h-6 w-6 text-primary" />
-								),
-								description:
-									'Votre partenaire privilégié pour réussir votre investissement à Madagascar.',
-								features: [
-									'Accompagnement',
-									'Conseil',
-									'Mise en relation',
-								],
-								bgClass:
-									'bg-gradient-to-br from-violet-50 to-purple-50',
-							},
-						].map((service, index) => (
-							<CarouselItem
-								key={index}
-								className="md:basis-1/2 lg:basis-1/3 pl-1 pr-4"
-							>
-								<div
-									className={`h-full rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 ${service.bgClass}`}
-								>
-									<div className="h-full p-8 flex flex-col">
-										<div className="flex items-center gap-4 mb-6">
-											<div className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm shadow-sm">
-												{service.icon}
-											</div>
-											<h3 className="text-xl font-bold">
-												{service.title}
-											</h3>
-										</div>
-
-										<p className="text-muted-foreground mb-8">
-											{service.description}
-										</p>
-
-										<div className="space-y-3 mb-8 flex-grow">
-											{service.features.map(
-												(feature, i) => (
-													<div
-														key={i}
-														className="flex items-center gap-2"
-													>
-														<div className="h-2 w-2 rounded-full bg-primary"></div>
-														<span className="text-sm">
-															{feature}
-														</span>
-													</div>
-												)
-											)}
-										</div>
-
-										<Button className="rounded-full mt-auto w-full shadow-sm hover:shadow-md transition-all duration-300 group">
-											En savoir plus
-											<ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-										</Button>
-									</div>
-								</div>
-							</CarouselItem>
-						))}
-					</CarouselContent>
-
-					<div className="flex items-center justify-center mt-8 gap-2">
-						<CarouselPrevious className="relative bg-white shadow-md hover:bg-primary hover:text-white transition-all duration-300 border-none" />
-						<div className="flex items-center space-x-1">
-							{[1, 2, 3, 4, 5].map((_, index) => (
-								<div
+				<div className="relative group">
+					<Carousel
+						opts={{
+							align: 'start',
+							loop: true,
+						}}
+						className="w-full"
+					>
+						<CarouselContent className="py-4">
+							{[
+								{
+									title: 'Pourquoi Madagascar',
+									icon: (
+										<Globe className="h-6 w-6 text-primary" />
+									),
+									description:
+										"Une île aux multiples opportunités d'investissement avec des ressources naturelles exceptionnelles et un emplacement stratégique.",
+									features: [
+										'Biodiversité unique',
+										'Ressources naturelles',
+										'Position géographique stratégique',
+									],
+									bgClass:
+										'bg-gradient-to-br from-blue-50 to-indigo-50',
+								},
+								{
+									title: "Création d'Entreprise",
+									icon: (
+										<Building className="h-6 w-6 text-primary" />
+									),
+									description:
+										'Processus dématérialisé pour la création de votre entreprise en seulement 48 heures via notre guichet unique.',
+									features: [
+										'Guichet unique',
+										'Procédure simplifiée',
+										'Accompagnement personnalisé',
+									],
+									bgClass:
+										'bg-gradient-to-br from-green-50 to-emerald-50',
+								},
+								{
+									title: 'Visa & Immigration',
+									icon: (
+										<Award className="h-6 w-6 text-primary" />
+									),
+									description:
+										"Facilitez votre installation avec nos services d'accompagnement pour l'obtention de visa long séjour.",
+									features: [
+										'Visa investisseur',
+										'Visa famille',
+										'Renouvellement simplifié',
+									],
+									bgClass:
+										'bg-gradient-to-br from-amber-50 to-yellow-50',
+								},
+								{
+									title: 'Secteurs Porteurs',
+									icon: (
+										<Briefcase className="h-6 w-6 text-primary" />
+									),
+									description:
+										'Découvrez les secteurs à fort potentiel pour votre investissement à Madagascar.',
+									features: [
+										'Agrobusiness',
+										'Tourisme',
+										'Industrie',
+										'Technologies',
+									],
+									bgClass:
+										'bg-gradient-to-br from-rose-50 to-pink-50',
+								},
+								{
+									title: "À Propos de l'EDBM",
+									icon: (
+										<MessageSquare className="h-6 w-6 text-primary" />
+									),
+									description:
+										'Votre partenaire privilégié pour réussir votre investissement à Madagascar.',
+									features: [
+										'Accompagnement',
+										'Conseil',
+										'Mise en relation',
+									],
+									bgClass:
+										'bg-gradient-to-br from-violet-50 to-purple-50',
+								},
+							].map((service, index) => (
+								<CarouselItem
 									key={index}
-									className="h-2 w-2 rounded-full bg-primary/30"
-								></div>
+									className="md:basis-1/2 lg:basis-1/3 pl-1 pr-4"
+								>
+									<div
+										className={`h-full rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 ${service.bgClass}`}
+									>
+										<div className="h-full p-8 flex flex-col">
+											<div className="flex items-center gap-4 mb-6">
+												<div className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm shadow-sm">
+													{service.icon}
+												</div>
+												<h3 className="text-xl font-bold">
+													{service.title}
+												</h3>
+											</div>
+
+											<p className="text-muted-foreground mb-8">
+												{service.description}
+											</p>
+
+											<div className="space-y-3 mb-8 flex-grow">
+												{service.features.map(
+													(feature, i) => (
+														<div
+															key={i}
+															className="flex items-center gap-2"
+														>
+															<div className="h-2 w-2 rounded-full bg-primary"></div>
+															<span className="text-sm">
+																{feature}
+															</span>
+														</div>
+													)
+												)}
+											</div>
+
+											<Button className="rounded-full mt-auto w-full shadow-sm hover:shadow-md transition-all duration-300 group">
+												En savoir plus
+												<ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+											</Button>
+										</div>
+									</div>
+								</CarouselItem>
 							))}
+						</CarouselContent>
+
+						{/* Enhanced carousel controls - positioned like in testimonial section */}
+						<div className="flex items-center justify-center mt-8 gap-4">
+							<CarouselPrevious
+								className="static translate-x-0 translate-y-0 h-10 w-10 rounded-full bg-white shadow-md hover:bg-primary hover:text-white border-none transition-all duration-300 focus:ring-2 focus:ring-primary focus:ring-offset-2"
+								aria-label="Previous service"
+							/>
+							<CarouselNext
+								className="static translate-x-0 translate-y-0 h-10 w-10 rounded-full bg-white shadow-md hover:bg-primary hover:text-white border-none transition-all duration-300 focus:ring-2 focus:ring-primary focus:ring-offset-2"
+								aria-label="Next service"
+							/>
 						</div>
-						<CarouselNext className="relative bg-white shadow-md hover:bg-primary hover:text-white transition-all duration-300 border-none" />
-					</div>
-				</Carousel>
+					</Carousel>
+				</div>
 
 				{/* Bottom card with stats */}
 				<div className="mt-20 bg-white rounded-3xl shadow-xl p-10 border border-primary/10">
