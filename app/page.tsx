@@ -12,6 +12,7 @@ import { HeroSection } from '@/components/hero-section';
 import { DiscoverSection } from '@/components/discover-section';
 import { ServicesSection } from '@/components/services-section';
 import { TestimonialSection } from '@/components/testimonial-section';
+import { NewsSection } from '@/components/news-section';
 
 export default function Home() {
 	return (
@@ -29,75 +30,7 @@ export default function Home() {
 			<TestimonialSection />
 
 			{/* News Section - Clean cards with minimal borders */}
-			<section className="w-full py-24 bg-[#FAFAFA]">
-				<div className="container mx-auto max-w-[1200px] px-4 md:px-6">
-					<div className="flex flex-col items-center text-center mb-16">
-						<h2 className="text-3xl font-bold tracking-tight mb-4">
-							Nos Actualités
-						</h2>
-						<p className="text-muted-foreground max-w-2xl">
-							Restez informé des dernières nouvelles
-						</p>
-					</div>
-					<div className="grid gap-8 md:grid-cols-3">
-						{[
-							{
-								title: 'Adoption du décret concernant la dématérialisation des procédures de création des entreprises',
-								date: '18 novembre 2024',
-								excerpt:
-									'48 heures pour immatriculer une entreprise.',
-							},
-							{
-								title: 'Abu Dhabi Ports Group and EDBM sign a Memorandum of Understanding (MoU)',
-								date: '1 juin 2024',
-								excerpt:
-									'To explore the Development of Ports, Maritime and Logistics',
-							},
-							{
-								title: "DIALOGUE PUBLIC-PRIVÉ : VERS L'AMÉLIORATION CONTINUE",
-								date: '24 octobre 2023',
-								excerpt:
-									'Fluidification du passage portuaire à Toamasina',
-							},
-						].map((article, i) => (
-							<Card
-								key={i}
-								className="border-none shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group"
-							>
-								<div className="h-1 bg-primary"></div>
-								<CardHeader>
-									<CardDescription className="text-xs font-medium text-primary mb-2">
-										{article.date}
-									</CardDescription>
-									<CardTitle className="line-clamp-2 group-hover:text-primary transition-colors">
-										{article.title}
-									</CardTitle>
-								</CardHeader>
-								<CardContent>
-									<p className="text-muted-foreground">
-										{article.excerpt}
-									</p>
-								</CardContent>
-								<CardFooter>
-									<Button
-										variant="ghost"
-										className="p-0 h-auto text-primary hover:bg-transparent hover:text-primary/80 group-hover:translate-x-1 transition-all duration-300"
-									>
-										Lire la suite{' '}
-										<ArrowRight className="h-4 w-4 ml-2" />
-									</Button>
-								</CardFooter>
-							</Card>
-						))}
-					</div>
-					<div className="flex justify-center mt-12">
-						<Button className="rounded-full">
-							Voir toutes nos actualités{' '}
-							<ArrowRight className="h-4 w-4 ml-2" />
-						</Button>
-					</div>
-				</div>
-			</section>
+			<NewsSection />
 
 			{/* Contact Section - Clean, minimalist design */}
 			<section className="w-full py-24 bg-white">
