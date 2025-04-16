@@ -1,0 +1,64 @@
+{
+    "github.copilot.chat.codeGeneration.instructions": [
+        {
+            "text": "Always use Typescript for code generation."
+        },
+        {
+            "text": "Always use React functional components."
+        },
+        {
+            "text": "Always generate beautiful components using shadcn."
+        },
+        {
+            "text": "Always generate idiomatic code."
+        },
+        {
+            "text": "Always generate tests using vitest."
+        },
+        {
+            "text": "Always ensure code is well-documented."
+        },
+        {
+            "text": "Always ensure code is well-structured."
+        },
+        {
+            "text": "Always ensure code is performant."
+        },
+        {
+            "text": "Always ensure code is secure."
+        },
+        {
+            "text": "Always ensure code is maintainable."
+        },
+        {
+            "text": "Always ensure code is scalable."
+        },
+        {
+            "text": "Always ensure code is reusable."
+        },
+        {
+            "text": "Always ensure code is testable."
+        },
+        {
+            "text": "Always ensure code is accessible."
+        },
+        {
+            "text": "Always ensure code is responsive."
+        },
+        {
+            "text": "Always ensure code is cross-browser compatible."
+        },
+        {
+            "text": "Always ensure code is user-friendly."
+        },
+        {
+            "text": "Always ensure test take all possible cases into account."
+        },
+        {
+            "text": "Always lucide-react for icons."
+        },
+        {
+            "text": "Always implement error handling."
+        },
+    ]
+}
